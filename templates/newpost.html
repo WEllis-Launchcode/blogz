@@ -1,19 +1,43 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% block content %}
-    <h1 style="color:rgb(15, 11, 41);">Add Blog Entry</h1>
-    <br>
-    <form method='post'>
-        <label style="color:rgb(117, 40, 5);">Title:
-            <br>
-            <input type="text" name='blog-title' value="{{blog_title}}" style="width:400px;">
-        </label>
-        <p class="error">{{title_error}}</p>
-        <label style="color:rgb(117, 40, 5);">Blog Entry:
-            <br>
-            <textarea name="blog-entry" style="width:540px; height:125px;">{{blog_body}}</textarea>
-        </label>
-        <p class="error">{{body_error}}</p>
-        <input type="submit" value='Add Entry'>
-    </form>
 
-{% endblock %}   
+<h1 class="add">Add a Blog Entry</h1>
+<form action="/newpost" method="POST">
+    <table>
+        <tr>
+            <td><label for="blog_title">Title of your Blog</label></td>
+        </tr>
+
+        <tr>
+            <td><input style="width:220px; height:20px;" type="text" name="blog-title" id="blog_title" value="{{blog_title}}" /></td>
+        </tr>
+
+        <tr>
+            <td class="error">{{title_error}}</td>
+        </tr>
+
+        <tr>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td><label for="blog_content">Post your blog!</label></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><textarea name="blog-entry" id="blog_body" wrap="hard" style="width:540px; height:125px;">{{blog_body}}</textarea></td>
+        </tr>
+
+        <tr>
+            <td class="error">{{body_error}}</td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Post my blog!" /></td>
+        </tr>
+
+    </table>
+
+</form>
+
+{% endblock %}

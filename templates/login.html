@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>User Login</h1>
+    <p>Do you have an existing account? If not, head over to <a href="/signup">create one.</a>!</p>
+    <form action="/login" method='POST'>
+        <p class="flash">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            <ul>
+            {% for category,message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+            </ul>
+        {% endwith %}
+        </p>
+
+        <label>
+            <span class="form_label">Username</span>
+            <input name="username" type="text" value='{{username}}' />
+        </label>
+        <p class="error">{{username_error}}</p>
+
+        <label>
+            <span class="form_label">Password</span>
+            <input name="password" type="password" value='{{password}}' />
+        </label>
+        <p class="error">{{password_error}}</p>
+        <input class="submit" type="submit" value="Submit" />
+    </form>
+{% endblock %} 

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+      <div class="content content-text wow fadeIn">
+        <h2>{{ title }}</h2>
+        <p>{{ body }}</p>
+        <p class='user'>Posted by: <a href="/blog?bloguser={{blog_user}}">{{ user }}</a></p>
+      </div>
+
+{% endblock %}
